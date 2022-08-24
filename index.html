@@ -12,10 +12,17 @@
     </head>
     <body>
         <div class="container">
+            <div id="gates" class="gates">
+                <div id="left_door" class="left_door"></div>
+                <div id="right_door" class="right_door"></div>
+                <button id="open_door" class="open_door">Open</button>
+            </div> 
             <div class="calculate">
                 <div class="content">
+                    <div  class="off_container">
+                        <button id="OFF">OFF</button>
+                    </div>
                     <div id="screen" class="screen" >
-                        
                     </div>
                     <div class="buttons">
                         <div class="line">
@@ -28,7 +35,7 @@
                             <button id="7" class="btn">7</button>
                             <button id="8" class="btn">8</button>
                             <button id="9" class="btn">9</button>
-                            <button id="X" class="btn">X</button>
+                            <button id="X" class="btn">x</button>
                         </div>
                         <div class="line">
                             <button id="4"class="btn">4</button>
@@ -45,7 +52,7 @@
                         <div class="line">
                             <button id="00" class="btn">00</button>
                             <button id="0" class="btn">0</button>
-                            <button id="," class="btn">,</button>
+                            <button id="," class="btn">.</button>
                             <button id="equel" class="btn">=</button>
                         </div>
                         
@@ -54,5 +61,7 @@
             </div>
         </div>
     </body>
+    <script src="./door.js"></script>
     <script src="./script.js"></script>
+    
 </html>

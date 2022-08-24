@@ -20,11 +20,11 @@ const btn19 = document.getElementById(",");
 const btn20 = document.getElementById("equel");
 const screen = document.getElementById("screen");
 
-const value1_str = '';
-const symbol_str = '';
-const result_str = '';
-const value1_numb = 0;
-const result_numb = 0;
+var value1_str = "";
+var symbol_str = "";
+var result_str = "";
+var value1_numb = 0;
+var result_numb = 0;
 
 function zero () {
     if (screen.textContent.length >15) {
@@ -35,23 +35,70 @@ zero();
 
 btn1.addEventListener('click', function click (){
     screen.innerHTML = "0";
+    value1_str = "";
+    symbol_str = "";
+    result_str = "";
+    value1_numb = 0;
+    result_numb = 0;
+    
 });
 btn2.addEventListener('click', function click (){
-    
-    screen.innerHTML += "(+/-)";
-
-
-
+        value1_str = screen.textContent;
+        if (value1_str.includes('-')) {
+            value1_str = screen.textContent;
+            screen.textContent = value1_str.substring(1);;
+            value1_str = '';
+        }else{
+            value1_str = screen.textContent;
+            screen.textContent = "-" + value1_str;
+            value1_str = "";
+            symbol_str = "";
+            result_str = "";
+            value1_numb = 0;
+            result_numb = 0;
+        }
 });
 btn3.addEventListener('click', function click (){
-    screen.innerHTML += "%";
+    if (value1_str.length == 0){
+        value1_str += screen.textContent;
+        value1_numb = parseFloat(value1_str)
+        result_numb = value1_numb/100;
+        result_str = String(result_numb)
+        screen.textContent = result_str;
+        
+    }else{
+        value1_numb = parseFloat(value1_str)
+        result_numb = value1_numb/100;
+        result_str = String(result_numb)
+        screen.textContent = result_str;
+        value1_str = "";
+        symbol_str = "";
+        result_str = "";
+        value1_numb = 0;
+        result_numb = 0;
+    }
 
 
 });
 btn4.addEventListener('click', function click (){
-    screen.innerHTML += "/";
+    if (value1_str.length == 0){
+        value1_str += screen.textContent;
+        screen.textContent = "";
+        symbol_str = "/" ;
+    }else{
+        result_str = (value1_str + symbol_str + screen.textContent);
+        result_numb = eval(result_str)
+        screen.textContent = String(result_numb);
+        value1_str = "";
+        symbol_str = "";
+        result_str = "";
+        value1_numb = 0;
+        result_numb = 0;
+    }
+    
 });
 btn5.addEventListener('click', function click (){
+    console.log(screen.textContent[0])
     if (screen.textContent.length >= 15) {
         screen.innerHTML += "";
     }
@@ -92,7 +139,20 @@ btn7.addEventListener('click', function click (){
     }
 });
 btn8.addEventListener('click', function click (){
-    screen.innerHTML += "X";
+    if (value1_str.length == 0){
+        value1_str += screen.textContent;
+        screen.textContent = "";
+        symbol_str = "*" ;
+    }else{
+        result_str = (value1_str + symbol_str + screen.textContent);
+        result_numb = eval(result_str)
+        screen.textContent = String(result_numb);
+        value1_str = "";
+        symbol_str = "";
+        result_str = "";
+        value1_numb = 0;
+        result_numb = 0;
+    }
 });
 btn9.addEventListener('click', function click (){
     if (screen.textContent.length >= 15) {
@@ -135,7 +195,20 @@ btn11.addEventListener('click', function click (){
     
 });
 btn12.addEventListener('click', function click (){
-    screen.innerHTML += "-";
+    if (value1_str.length == 0){
+        value1_str += screen.textContent;
+        screen.textContent = "";
+        symbol_str = "-" ;
+    }else{
+        result_str = (value1_str + symbol_str + screen.textContent);
+        result_numb = eval(result_str)
+        screen.textContent = String(result_numb);
+        value1_str = "";
+        symbol_str = "";
+        result_str = "";
+        value1_numb = 0;
+        result_numb = 0;
+    }
 });
 btn13.addEventListener('click', function click (){
     if (screen.textContent.length >= 15) {
@@ -177,7 +250,20 @@ btn15.addEventListener('click', function click (){
     }
 });
 btn16.addEventListener('click', function click (){
-    screen.innerHTML += "+";
+    if (value1_str.length == 0){
+        value1_str += screen.textContent;
+        screen.textContent = "";
+        symbol_str = "+" ;
+    }else{
+        result_str = (value1_str + symbol_str + screen.textContent);
+        result_numb = eval(result_str)
+        screen.textContent = String(result_numb);
+        value1_str = "";
+        symbol_str = "";
+        result_str = "";
+        value1_numb = 0;
+        result_numb = 0;
+    }
 });
 btn17.addEventListener('click', function click (){
     if (screen.textContent.length >= 15) {
@@ -206,7 +292,7 @@ btn18.addEventListener('click', function click (){
     }
 });
 btn19.addEventListener('click', function click (){
-    let dot = ','
+    let dot = '.'
     if (screen.textContent.length >= 15) {
         screen.innerHTML += "";
     }
@@ -218,11 +304,24 @@ btn19.addEventListener('click', function click (){
     }else if (screen.textContent.includes(dot) == true) {
         screen.innerHTML += "";
     }else {
-        screen.innerHTML += ",";
+        screen.innerHTML += ".";
     }
 });
 btn20.addEventListener('click', function click (){
-    screen.innerHTML += "=";
+    if (value1_str.length == 0){
+        value1_str += screen.textContent;
+        screen.textContent = value1_str;
+        
+    }else{
+        result_str = (value1_str + symbol_str + screen.textContent);
+        result_numb = eval(result_str)
+        screen.textContent = String(result_numb);
+        value1_str = "";
+        symbol_str = "";
+        result_str = "";
+        value1_numb = 0;
+        result_numb = 0;
+    }
 });
 
 
